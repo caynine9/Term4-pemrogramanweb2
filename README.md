@@ -24,7 +24,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Instructions
 
 Usually after commiting files to GitHub there are some sensitive informations that were automatically deleted.
-To ensure that you are able to run Laravel environment properly you need to do few things after cloning a Laravel project repos:
+To ensure that you are able to run Laravel's webserver properly you need to do few things after cloning a Laravel project repos:
 
 * **Issues with 500 Server Error:** 
 This is usually caused by missing `.env` file. All you need to do is rename `.env.example` file to `.env`
