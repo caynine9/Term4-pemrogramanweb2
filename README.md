@@ -32,6 +32,10 @@ This is usually caused by missing `.env` file. All you need to do is rename `.en
 * **Missing APP_KEY:**
 All you need to do is generate a new key. Paste it in the `.env` file on the `APP_KEY=` section.
 
+## Resources
+
+* SB-Admin2 Template by StartBootstrap https://startbootstrap.com/theme/sb-admin-2
+* and more to come...
 
 ## License
 
