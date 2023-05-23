@@ -36,27 +36,29 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account</h1>
                             </div>
-                            <form class="user">
+
+                            <form class="user" action="/saveregister" method="POST">
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                            placeholder="Name">
+                                            placeholder="Name" name="name">
       
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Email Address">
+                                        placeholder="Email Address" name="email">
                                 </div>
                                 <div class="form-group">
                                     
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="exampleInputPassword" placeholder="Password" name="password">
                                     
                                 
                                 </div>
-                                <a href="/" class="btn btn-primary btn-user btn-block">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
-                                </a>
+                                </button>
                                 <hr>
                                 
                             </form>

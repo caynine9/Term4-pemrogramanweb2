@@ -15,12 +15,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
 Route::get('/register', [UserController::class, 'register']);
 
 Route::get('/tes', function () {
     return view('tes');
+});
+
+Route::post('/saveregister', [UserController::class, 'saveRegister'])->name('saveregister');
+
+Route::group([['middleware' => 'auth']], function() {
+
+    Route::get('/', [HomeController::class, 'index']);
+
 });
