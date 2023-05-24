@@ -17,12 +17,11 @@ class UserController extends Controller
 
     public function saveRegister(Request $request){
 
-        dd($request->all());
-
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'level' => $request->level,
 
         ]);
 
