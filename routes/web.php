@@ -16,9 +16,9 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 
 Route::get('/tes', function () {
     return view('tes');
@@ -33,5 +33,5 @@ Route::get('/logout', [UserController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
     
     Route::get('/',[HomeController::class, 'index']);
-    
+
 });
