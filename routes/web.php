@@ -26,8 +26,12 @@ Route::get('/tes', function () {
 
 Route::post('/saveregister', [UserController::class, 'saveRegister'])->name('saveregister');
 
-Route::group([['middleware' => 'auth']], function() {
+Route::post('/postlogin', [UserController::class, 'postLogin'])->name('postlogin');
 
-    Route::get('/', [HomeController::class, 'index']);
+Route::get('/logout', [UserController::class, 'logout']);
 
+Route::group(['middleware' => ['auth']], function () {
+    
+    Route::get('/',[HomeController::class, 'index']);
+    
 });
