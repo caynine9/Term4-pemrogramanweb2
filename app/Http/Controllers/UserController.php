@@ -60,7 +60,7 @@ class UserController extends Controller
             $usr = User::all();
             return view('user-data', compact('usr'));
         }
-        return view('notFound');
+        return view('not-found');
     }
 
     public function show($id)
@@ -74,5 +74,13 @@ class UserController extends Controller
         $usr->delete();
         return back();
     }
+
+    public function profile()
+{
+    $user = Auth::user(); // Retrieve currently logged-in user
+
+    return view('user-profile', ['user' => $user]);
+}
+
 }
 
