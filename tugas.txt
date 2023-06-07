@@ -1,0 +1,4 @@
+TUGAS:
+- Saat menghapus pengguna, tidak menghapus field di database (hidden)
+- Tabel Kategori dan Berita (ber relasi)
+- CRUD masing2 tabel.

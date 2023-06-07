@@ -40,6 +40,7 @@
                                         <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Level</th>
                                         <th>Waktu Registrasi</th>
                                     </tr>
             
@@ -47,6 +48,7 @@
                                             <td><img src="{{ asset('img/' . $user->foto) }}" width="200" height="200"></td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->level }}</td>
                                             <td>{{ $user->created_at }}</td>
                                         </tr>
                                 </table>

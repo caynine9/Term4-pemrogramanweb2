@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Data Pengguna</title>
+    <title>Profil Pengguna</title>
     @include('components.head')
 </head>
 
@@ -29,10 +29,9 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    {{-- @if (auth()->user()->level == "Admin") --}}
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pengguna</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ubah Pengguna</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -41,16 +40,17 @@
                                         <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Aksi</th>
+                                        <th>Level</th>
+                                        <th>Waktu Registrasi</th>
                                     </tr>
-                                    @foreach ($usr as $item)
+            
                                         <tr>
-                                            <td><img src="{{ asset('img/' . $item->foto) }}" width="100" height="100"></td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>Ubah | <a href="{{url('delete-user/'. $item->id)}}">Hapus</a> </td>
+                                            <td><img src="{{ asset('img/' . $user->foto) }}" width="100" height="100"></td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->level }}</td>
+                                            <td>{{ $user->created_at }}</td>
                                         </tr>
-                                    @endforeach
                                 </table>
                             </div>
                         </div>
