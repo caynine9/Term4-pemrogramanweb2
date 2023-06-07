@@ -28,6 +28,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'level' => $request->level,
+            'foto' => 'default.png'
 
         ]);
 
@@ -52,4 +53,26 @@ class UserController extends Controller
         Auth::logout();
         return redirect('login');
     }
+
+    public function userData()
+    {
+        if(auth()->user()->level == "Admin"){
+            $usr = User::all();
+            return view('user-data', compact('usr'));
+        }
+        return view('notFound');
+    }
+
+    public function show($id)
+    {
+        return User::findOrFail($id);
+    }
+
+    public function deleteUser($id)
+    {
+        $usr = User::findOrFail($id);
+        $usr->delete();
+        return back();
+    }
 }
+

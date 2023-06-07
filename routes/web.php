@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 */
 
 
-Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest'); 
 
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 
@@ -33,5 +33,11 @@ Route::get('/logout', [UserController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
     
     Route::get('/',[HomeController::class, 'index']);
+
+    Route::get('/user-data',[UserController::class, 'userData']);
+
+    Route::get('/delete-user/{id}',[UserController::class, 'deleteUser']);
+
+    Route::get('/show-user/{id}',[UserController::class, 'show']);
 
 });
