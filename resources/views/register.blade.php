@@ -56,16 +56,7 @@
                                     
                                 
                                 </div>
-                                <div class="form-group">
-                                    
-                                    <select name="level" class="form-control-user"
-                                        id="exampleInputLevel" placeholder="Level">
-                                        <option value="" disabled selected>Level</option>
-                                        <option value="Admin" placeholder="Admin">Admin</option>
-                                        <option value="Mahasiswa" placeholder="Mahasiswa">Mahasiswa</option>
-                                    </select>
-                            
-                            </div>
+                                
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>

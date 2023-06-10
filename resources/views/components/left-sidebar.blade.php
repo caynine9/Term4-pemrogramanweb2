@@ -31,11 +31,11 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
-        <span>Components</span>
+        <span>User Control</span>
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{url('user-data')}}">Data Pengguna</a>
+            <a class="collapse-item" href="{{url('user-data')}}">User Data</a>
             <a class="collapse-item" href="cards.html">Cards</a>    
         </div>
     </div>

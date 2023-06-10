@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Ubah Pengguna</title>
+    <title>Modify Profile</title>
     @include('components.head')
 </head>
 
@@ -35,31 +35,20 @@
                             <h6 class="m-0 font-weight-bold text-primary">Modify User</h6>
                         </div>
                         <div class="card-body">
-                            <form class="user" action="{{ url('post-change-user/'. $usr->id) }}" method="POST">
+                            <form class="user" action="{{ url('post-modify-profile/') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                         <input type="text" class="form-control form-control-user" name="name" id="exampleFirstName"
-                                            placeholder="Name" value="{{$usr->name}}">
+                                            placeholder="Name" value="{{$user->name}}">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user"  id="exampleInputEmail"
-                                        placeholder="Email Address" name="email" value="{{$usr->email}}">
+                                        placeholder="Email Address" name="email" value="{{$user->email}}">
                                 </div>
                                 <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleInputPassword" name="password" placeholder="Password">
                                 </div>
-                                <div class="form-group">
-                                    
-                                    <select name="level" class="form-control-user"
-                                        id="exampleInputLevel" placeholder="Level">
-                                        <option value="" disabled selected>Level</option>
-                                        <option value="Admin" placeholder="Admin">Admin</option>
-                                        <option value="Mahasiswa" placeholder="Mahasiswa">Mahasiswa</option>
-                                        <option value="Habib" placeholder="Habib">Habib</option>
-                                    </select>
-                            
-                            </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Save
                                 </button>

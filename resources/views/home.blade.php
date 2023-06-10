@@ -33,8 +33,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+
                     <!-- Page Heading -->
+                    @if(auth()->user()->level == "Admin" || auth()->user()->level == "Habib" )
                     <h1 class="h3 mb-4 text-gray-800">You are logged in as an {{ auth()->user()->level }}</h1>
+                    @endif
 
                 </div>
                 <!-- /.container-fluid -->

@@ -32,23 +32,25 @@
                     {{-- @if (auth()->user()->level == "Admin") --}}
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pengguna</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">User Data</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th>Foto</th>
-                                        <th>Nama</th>
+                                        <th>Profile Picture</th>
+                                        <th>Name</th>
                                         <th>Email</th>
-                                        <th>Aksi</th>
+                                        <th>Level</th>
+                                        <th>Action</th>
                                     </tr>
                                     @foreach ($usr as $item)
                                         <tr>
                                             <td><img src="{{ asset('img/' . $item->foto) }}" width="100" height="100"></td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->email }}</td>
-                                            <td>Ubah | <a href="{{url('delete-user/'. $item->id)}}">Hapus</a> </td>
+                                            <td>{{ $item->level }}</td>
+                                            <td><a href="{{url('change-user/'. $item->id)}}">Modify</a> | <a href="{{url('delete-user/'. $item->id)}}">Delete</a> </td>
                                         </tr>
                                     @endforeach
                                 </table>

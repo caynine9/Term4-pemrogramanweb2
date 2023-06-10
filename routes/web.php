@@ -42,4 +42,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/profile', [UserController:: class, 'profile'])->name('profile');
 
+    Route::get('/change-user/{id}',[UserController::class, 'changeUser']);
+
+    Route::post('/post-change-user/{id}', [UserController::class, 'postChangeUser']);
+    
+    Route::get('/modify-profile', [UserController::class, 'modifyProfile']);
+    
+    Route::post('/post-modify-profile', [UserController::class, 'postModifyProfile']);
+
 });

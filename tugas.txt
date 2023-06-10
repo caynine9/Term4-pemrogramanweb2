@@ -1,4 +1,20 @@
 TUGAS:
-- Saat menghapus pengguna, tidak menghapus field di database (hidden)
-- Tabel Kategori dan Berita (ber relasi)
-- CRUD masing2 tabel.
+1. Saat menghapus pengguna, tidak menghapus field di database(**DONE**)::USE SOFT-DELETES (https://www.malasngoding.com/soft-deletes-laravel/)
+    - Add SoftDeletes Trait: Open app\Models\User.php file and import Illuminate\Database\Eloquent\SoftDeletes, add "use SoftDelete;"
+    
+    - Make table migration php artisan make:migration add_deleted_at_to_users --table=users. Make some changes to the migration file (refer to 2023_06_10... in database/migrations)
+        This will create "deleted_at" column in the database.  
+    
+    - Soft-delete a user, you can call the delete() method on the User model instance. For example:
+        $usr = User::findOrFail($id);
+        $usr->delete();
+
+        The delete() method will set the deleted_at timestamp for the user record
+
+    - When fetching users to display on the view page, filter out the soft-deleted users. Modify query to include the whereNull('deleted_at') condition:
+        $users = User::whereNull('deleted_at')->get();
+
+
+
+2. Tabel Kategori dan Berita (ber relasi)
+3. CRUD masing2 tabel.

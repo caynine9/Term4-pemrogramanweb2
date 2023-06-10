@@ -27,7 +27,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'level' => $request->level,
+            'level' => 'Mahasiswa',
             'foto' => 'default.png'
 
         ]);
@@ -57,7 +57,7 @@ class UserController extends Controller
     public function userData()
     {
         if(auth()->user()->level == "Admin"){
-            $usr = User::all();
+            $usr = User::whereNull('deleted_at')->get();
             return view('user-data', compact('usr'));
         }
         return view('not-found');
@@ -65,7 +65,9 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return User::findOrFail($id);
+        // return User::findOrFail($id); based on ID field
+        
+        return User::where('name', 'LIKE', "%$id%")->first();
     }
 
     public function deleteUser($id)
@@ -75,12 +77,77 @@ class UserController extends Controller
         return back();
     }
 
+    public function changeUser($id)
+    {
+       $usr = User::findOrFail($id);
+       return view('change-user', compact('usr'));
+       // return view('')
+    }
+
+    public function postChangeUser(Request $request, $id)
+    {
+        if($request->password)
+        {
+            User::where('id', $id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'level' => $request->level,
+               ]);
+
+               return redirect ('user-data');
+               
+        } else if (!$request->password)
+        {
+            User::where('id', $id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'level' => $request->level,
+               ]);
+
+               return redirect ('user-data');
+        }
+    }
+
     public function profile()
-{
+    {
     $user = Auth::user(); // Retrieve currently logged-in user
 
     return view('user-profile', ['user' => $user]);
-}
+    }
+
+    public function modifyProfile()
+    {
+       $user = Auth::user();
+       return view('modify-profile', compact('user'));
+      
+    }
+
+    public function postModifyProfile(Request $request)
+    {
+        $id = Auth::user()->id;
+
+        if($request->password)
+            {
+                Auth::user('id', $id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => bcrypt($request->password),
+                   ]);
+    
+                   return redirect ('profile');
+                   
+            } else if (!$request->password)
+            {
+                Auth::user('id', $id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                   ]);
+    
+                   return redirect ('profile');
+            }
+      
+    }
 
 }
 
