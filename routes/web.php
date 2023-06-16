@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/modify-profile', [UserController::class, 'modifyProfile']);
     
     Route::post('/post-modify-profile', [UserController::class, 'postModifyProfile']);
+
+    Route::get('/news/create/', [NewsController::class, 'createNews']);
+
+    Route::post('/store-news', [NewsController::class, 'storeNews']);
+
+    Route::get('/categories', [NewsController::class, 'displayCategories']);
+
+    Route::get('/categories/create', [NewsController::class, 'createCategories']);
+
+    Route::post('/store-categories', [NewsController::class, 'storeCategories']);
+
+    Route::get('/delete-categories/{id}',[NewsController::class, 'deleteCategories']);
 
 });

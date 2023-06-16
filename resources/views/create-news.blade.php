@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Ubah Pengguna</title>
+    <title>Tambahkan Berita</title>
     @include('components.head')
 </head>
 
@@ -32,35 +32,31 @@
                     <center>
                     <div class="card shadow mb-4 col-lg-6">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Modify User</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Create News</h6>
                         </div>
                         <div class="card-body">
-                            <form class="user" action="{{ url('post-change-user/'. $usr->id) }}" method="POST">
+                            <form class="user" action="{{ url('store-news/') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" name="name" id="exampleFirstName"
-                                            placeholder="Name" value="{{$usr->name}}">
+                                        <input type="text" class="form-control form-control-user" name="title" id="title"
+                                            placeholder="Title" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user"  id="exampleInputEmail"
-                                        placeholder="Email Address" name="email" value="{{$usr->email}}">
+                                    <textarea class="form-control form-control-user"  id="content"
+                                        placeholder="Content" name="content" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" name="password" placeholder="Password">
+                                        <select class="form-control-user"
+                                            id="category_id" name="category_id" placeholder="Category" required>
+                                            <option value="" disabled selected>Select a category</option>
+                                            @foreach($categories as $category)
+                                               <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+
                                 </div>
-                                <div class="form-group">
-                                    
-                                    <select name="level" class="form-control-user"
-                                        id="exampleInputLevel" placeholder="Level">
-                                        <option value="" disabled selected>Level</option>
-                                        <option value="Admin" placeholder="Admin">Admin</option>
-                                        <option value="Mahasiswa" placeholder="Mahasiswa">Mahasiswa</option>
-                                    </select>
-                            
-                            </div>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Save
+                                    Post
                                 </button>
                                 <hr>
                             </form>

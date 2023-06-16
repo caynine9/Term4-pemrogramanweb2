@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    // ------- REGISTER AND LOGIN VIEW START ------------------
     public function login() {
 
         // if(Auth::check()){
@@ -21,6 +23,9 @@ class UserController extends Controller
         return view('register');
     }
 
+    // ------- REGISTER AND LOGIN VIEW END ------------------
+
+    // ------- REGISTER FUNCTION START ------------------
     public function saveRegister(Request $request){
 
         User::create([
@@ -35,6 +40,10 @@ class UserController extends Controller
         return redirect ('login');
     }
 
+    // ------- REGISTER FUNCTION END ------------------
+
+    // ------- LOGIN & LOGOUT FUNCTION START ------------------
+
     public function postLogin(Request $request){
         if(Auth::attempt([
             'email' => $request->email,
@@ -48,11 +57,17 @@ class UserController extends Controller
         }
     }
 
+    
     public function logout()
     {
         Auth::logout();
         return redirect('login');
     }
+
+    // ------- LOGIN & LOGOUT FUNCTION END ------------------
+
+
+    // ------- USER EDIT START ------------------
 
     public function userData()
     {
@@ -109,6 +124,10 @@ class UserController extends Controller
         }
     }
 
+    // ------- USER EDIT END ------------------
+
+    // ------- AUTH USER EDIT START ------------------
+
     public function profile()
     {
     $user = Auth::user(); // Retrieve currently logged-in user
@@ -148,6 +167,9 @@ class UserController extends Controller
             }
       
     }
+
+    // ------- AUTH USER EDIT END ------------------
+
 
 }
 
