@@ -65,7 +65,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/news">News</a>
-            <a class="collapse-item" href="/news/create">Create a Post</a>
+            <a class="collapse-item" href="/create-news">Create a Post</a>
         </div>
     </div>
 </li>

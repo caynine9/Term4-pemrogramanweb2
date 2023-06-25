@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>List Kategori</title>
+    <title>List Berita</title>
     @include('components.head')
 </head>
 
@@ -32,19 +32,26 @@
                     {{-- @if (auth()->user()->level == "Admin") --}}
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">News</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <tr>
-                                        <th>Categories</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Created At</th>
                                         <th>Action</th>
+                                        
                                     </tr>
-                                    @foreach ($categories as $category)
+                                    @foreach ($news as $item)
                                         <tr>
-                                            <td>{{ $category->name }}</td>
-                                            <td><a href="{{url('delete-categories/'. $category->id)}}">Delete</a></td>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->categories->name }}</td>
+                                            <td>{{ $item->created_at }}</td>
+                                            <td><a href="{{ url('news', $item->id) }}">Show</a></td>
+
+
                                         </tr>
                                     @endforeach
                                 </table>

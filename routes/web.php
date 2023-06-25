@@ -51,7 +51,11 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::post('/post-modify-profile', [UserController::class, 'postModifyProfile']);
 
-    Route::get('/news/create/', [NewsController::class, 'createNews']);
+    Route::get('/news', [NewsController::class, 'newsList']);
+
+    Route::get('/news/{id}/', [NewsController::class, 'news']);
+
+    Route::get('/create-news', [NewsController::class, 'createNews']);
 
     Route::post('/store-news', [NewsController::class, 'storeNews']);
 

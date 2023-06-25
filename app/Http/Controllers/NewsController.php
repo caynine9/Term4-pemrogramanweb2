@@ -11,6 +11,31 @@ class NewsController extends Controller
 
     // --------------- NEWS SECTION START ----------------
 
+    public function newsList()
+    {
+
+        $news = News::all();
+
+        return view('news-list', ['news' => $news]);
+    }
+
+    public function news($id)
+    {
+
+        $news = News::findOrFail($id);
+        $categories = Categories::all();
+
+        return view('news', compact('news', 'categories'));
+    }
+
+    public function sidebarWidget()
+    {
+
+        $categories = Categories::all();
+        return view('components.side-widget', ['categories' => $categories]);
+
+    }
+
     public function createNews()
     {
         $categories = Categories::all();
