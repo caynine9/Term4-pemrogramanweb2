@@ -34,7 +34,8 @@ All you need to do is generate a new key. Paste it in the `.env` file on the `AP
 
 ## Resources
 
-* SB-Admin2 Template by StartBootstrap https://startbootstrap.com/theme/sb-admin-2
+* SB-Admin2 Theme by StartBootstrap https://startbootstrap.com/theme/sb-admin-2
+* Blog Post Template by StartBootstrap https://startbootstrap.com/template/blog-post
 * TinyMCE by Tiny https://www.tiny.cloud/tinymce/ | https://www.tiny.cloud/docs/tinymce/6/laravel-composer-install/
 
 ## License
