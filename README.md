@@ -23,7 +23,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Instructions
 
-Usually after commiting files to GitHub there are some sensitive informations that were automatically deleted.
+Usually after pushing files to GitHub there are huge files/sensitive informations (app tokens/keys) that were not included in the commit (.gitignore).
 To ensure that you are able to run Laravel's webserver properly you need to do few things after cloning a Laravel project repos:
 
 * **Issues with 500 Server Error:** 
@@ -31,6 +31,9 @@ This is usually caused by missing `.env` file. All you need to do is rename `.en
 
 * **Missing APP_KEY:**
 All you need to do is generate a new key. Paste it in the `.env` file on the `APP_KEY=` section.
+
+* **Failed to find file "/%dir%/vendor/autoload.php/:**
+Copy existing `vendor` folder from another Laravel project to the project directory.
 
 ## Resources
 
