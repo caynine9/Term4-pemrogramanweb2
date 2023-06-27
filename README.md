@@ -32,7 +32,7 @@ This is usually caused by missing `.env` file. All you need to do is rename `.en
 * **Missing APP_KEY:**
 All you need to do is generate a new key. Paste it in the `.env` file on the `APP_KEY=` section.
 
-* **Failed to find file "/%dir%/vendor/autoload.php/:**
+* **Failed to find file "/%dir%/vendor/autoload.php/":**
 Copy existing `vendor` folder from another Laravel project to the project directory.
 
 ## Resources
