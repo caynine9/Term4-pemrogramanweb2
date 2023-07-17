@@ -54,7 +54,9 @@
         </div>
     </div>
 </li>
+@endif
 
+@if(auth()->user()->level == "Admin" || auth()->user()->level == "Mahasiswa"  )
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNews" aria-expanded="true"
         aria-controls="collapsePages">
@@ -65,6 +67,7 @@
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="/news">News</a>
+            
             <a class="collapse-item" href="/create-news">Create a Post</a>
         </div>
     </div>
